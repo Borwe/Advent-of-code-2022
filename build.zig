@@ -46,4 +46,5 @@ pub fn build(b: *std.build.Builder) !void {
     const run_step = b.step("run", "Run the app");
     run_step.dependOn(&run_cmd.step);
     try add_day_exercise(b, mode, target, "day1_1", "src/day1_1.zig");
+    try add_day_exercise(b, mode, target, "day1_2", "src/day1_2.zig");
 }
