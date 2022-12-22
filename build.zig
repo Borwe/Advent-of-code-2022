@@ -47,4 +47,6 @@ pub fn build(b: *std.build.Builder) !void {
     run_step.dependOn(&run_cmd.step);
     try add_day_exercise(b, mode, target, "day1_1", "src/day1_1.zig");
     try add_day_exercise(b, mode, target, "day1_2", "src/day1_2.zig");
+    try add_day_exercise(b, mode, target, "day2_1", "src/day2_1.zig");
+    try add_day_exercise(b, mode, target, "day2_2", "src/day2_2.zig");
 }

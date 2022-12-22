@@ -26,7 +26,7 @@ fn checkIfElfTop3AndAdd(elf_score: usize, scores: *[3]usize) void{
 
 pub fn main() !void{
     const stdout = std.io.getStdOut().writer();
-    try stdout.print("Day 1 p1 solution\n", .{});
+    try stdout.print("Day 1 p2 solution\n", .{});
     var lines: ArrayList(ArrayList(u8)) = try utils.readLinesFromFile(100, "res/day1_1.txt");
     defer lines.deinit();
 
