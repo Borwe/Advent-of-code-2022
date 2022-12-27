@@ -1,12 +1,11 @@
 const std = @import("std");
 const ArrayList = std.ArrayList;
 
-fn add_day_exercise(b: *std.build.Builder, mode: std.builtin.Mode, target: std.zig.CrossTarget,comptime day:[]const u8,
-    comptime file: []const u8) !void{
-    const exe = b.addExecutable(day,file);
+fn add_day_exercise(b: *std.build.Builder, mode: std.builtin.Mode, target: std.zig.CrossTarget, comptime day: []const u8, comptime file: []const u8) !void {
+    const exe = b.addExecutable(day, file);
     exe.setTarget(target);
     exe.setBuildMode(mode);
-    exe.addPackagePath("utils","src/utils.zig");
+    exe.addPackagePath("utils", "src/utils.zig");
     exe.install();
 
     var buf: [1024]u8 = undefined;
@@ -50,4 +49,5 @@ pub fn build(b: *std.build.Builder) !void {
     try add_day_exercise(b, mode, target, "day2_1", "src/day2_1.zig");
     try add_day_exercise(b, mode, target, "day2_2", "src/day2_2.zig");
     try add_day_exercise(b, mode, target, "day3_1", "src/day3_1.zig");
+    try add_day_exercise(b, mode, target, "day3_2", "src/day3_2.zig");
 }
