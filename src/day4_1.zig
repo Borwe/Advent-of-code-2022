@@ -46,7 +46,7 @@ fn isInside(ranges: *ArrayList(Range)) !bool {
     if (first.start <= second.start and first.end >= second.end) {
         try std.io.getStdOut().writer().print("{d}-{d},{d}-{d}\n", .{ first.start, first.end, second.start, second.end });
         return true;
-    } else if (second.start <= first.start and second.end >= first.start) {
+    } else if (second.start <= first.start and second.end >= first.end) {
         try std.io.getStdOut().writer().print("{d}-{d},{d}-{d}\n", .{ first.start, first.end, second.start, second.end });
         return true;
     }
