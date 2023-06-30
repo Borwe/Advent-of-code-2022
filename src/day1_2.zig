@@ -3,17 +3,28 @@ const utils = @import("utils");
 const ArrayList = std.ArrayList;
 const EmptyLineError = utils.ParsingErrors.EmptyLineError;
 
-fn checkIfElfTop3AndAdd(elf_score: usize, scores: *[3]usize) void {
-    for (scores) |*score| {
-        if (score.* == 0) {
-            score.* = elf_score;
-            return;
-        } else {
-            //meaning field is filled so we replace if large
-            if (score.* < elf_score) {
-                score.* = elf_score;
-                break;
+fn sort(scores: *[3]usize) void {
+    var index: u8 = 0;
+    while (index < 3) {
+        var comp: u8 = 0;
+        while (comp < 3) {
+            if (scores[comp] > scores[index]) {
+                var tmp = scores[comp];
+                scores[comp] = scores[index];
+                scores[index] = tmp;
             }
+            comp += 1;
+        }
+        index += 1;
+    }
+}
+
+fn checkIfElfTop3AndAdd(elf_score: usize, scores: *[3]usize) void {
+    sort(scores);
+    for (scores) |*score| {
+        if (score.* < elf_score) {
+            score.* = elf_score;
+            break;
         }
     }
 }
