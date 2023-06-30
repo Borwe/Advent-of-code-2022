@@ -14,9 +14,9 @@ pub fn readLinesFromFile(comptime line_size: comptime_int, file_loc: []const u8)
 
     while (result: {
         var line = in_stream.readUntilDelimiterOrEof(&buf, '\n') catch break :result false;
-        if (line != null) {
+        if (line) |line_a| {
             var line_arraylist = ArrayList(u8).init(std.heap.page_allocator);
-            try line_arraylist.writer().print("{s}", .{line.?});
+            try line_arraylist.writer().print("{s}", .{line_a[0 .. line_a.len - 1]});
             try lines.append(line_arraylist);
             break :result true;
         } else {

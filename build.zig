@@ -50,4 +50,5 @@ pub fn build(b: *std.Build) !void {
     try add_day_exercise(b, optimize, target, "day2_2", "src/day2_2.zig");
     try add_day_exercise(b, optimize, target, "day3_1", "src/day3_1.zig");
     try add_day_exercise(b, optimize, target, "day3_2", "src/day3_2.zig");
+    try add_day_exercise(b, optimize, target, "day4_1", "src/day4_1.zig");
 }
