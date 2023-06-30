@@ -45,7 +45,7 @@ pub fn build(b: *std.Build) !void {
     const run_step = b.step("run", "Show info");
     run_step.dependOn(&run_cmd.step);
     try add_day_exercise(b, optimize, target, "day1_1", "src/day1_1.zig");
-    //try add_day_exercise(b, optimize, target, "day1_2", "src/day1_2.zig");
+    try add_day_exercise(b, optimize, target, "day1_2", "src/day1_2.zig");
     //try add_day_exercise(b, optimize, target, "day2_1", "src/day2_1.zig");
     //try add_day_exercise(b, optimize, target, "day2_2", "src/day2_2.zig");
     //try add_day_exercise(b, optimize, target, "day3_1", "src/day3_1.zig");
