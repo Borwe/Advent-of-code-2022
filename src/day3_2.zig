@@ -1,7 +1,7 @@
 const std = @import("std");
 const utils = @import("utils");
 const ArrayList = std.ArrayList;
-const stdout = std.io.getStdOut().writer();
+
 fn get_similar(group: [3][]const u8) u8 {
     for (group[0]) |char1| {
         var match_1 = false;
@@ -26,6 +26,7 @@ fn get_similar(group: [3][]const u8) u8 {
 }
 
 pub fn main() !void {
+    const stdout = std.io.getStdOut().writer();
     try stdout.print("Day 3 p2 solution\n", .{});
     var lines: ArrayList(ArrayList(u8)) = try utils.readLinesFromFile(100, "res/day3_1.txt");
     defer lines.deinit();
@@ -38,7 +39,7 @@ pub fn main() !void {
     var sum_priorities: usize = 0;
     var group: [3][]const u8 = undefined;
 
-    for (lines.items) |line, i| {
+    for (lines.items, 0..) |line, i| {
         if (line.items.len <= 0) {
             continue;
         }

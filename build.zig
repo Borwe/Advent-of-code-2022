@@ -9,7 +9,7 @@ fn add_day_exercise(b: *std.Build, optimize: std.builtin.OptimizeMode, target: s
     exe.addModule("utils", utils);
     b.installArtifact(exe);
 
-    var buf: [1024]u8 = undefined;
+    var buf: [5024]u8 = undefined;
     var fba = std.heap.FixedBufferAllocator.init(&buf);
     const alloc = fba.allocator();
 
@@ -46,8 +46,8 @@ pub fn build(b: *std.Build) !void {
     run_step.dependOn(&run_cmd.step);
     try add_day_exercise(b, optimize, target, "day1_1", "src/day1_1.zig");
     try add_day_exercise(b, optimize, target, "day1_2", "src/day1_2.zig");
-    //try add_day_exercise(b, optimize, target, "day2_1", "src/day2_1.zig");
-    //try add_day_exercise(b, optimize, target, "day2_2", "src/day2_2.zig");
-    //try add_day_exercise(b, optimize, target, "day3_1", "src/day3_1.zig");
-    //try add_day_exercise(b, optimize, target, "day3_2", "src/day3_2.zig");
+    try add_day_exercise(b, optimize, target, "day2_1", "src/day2_1.zig");
+    try add_day_exercise(b, optimize, target, "day2_2", "src/day2_2.zig");
+    try add_day_exercise(b, optimize, target, "day3_1", "src/day3_1.zig");
+    try add_day_exercise(b, optimize, target, "day3_2", "src/day3_2.zig");
 }
